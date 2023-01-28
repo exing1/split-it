@@ -1,3 +1,11 @@
+class Line():
+    """
+    just a line of words
+    """
+    def __init__(self, words):
+        self.words = words
+
+
 class TextCorpus():
     """
     a text corpus is just a collection of BoundingBox
@@ -35,6 +43,14 @@ class TextCorpus():
             else:
                 # add to the last line
                 lines[-1].append(word)
+        return lines
+
+    def order_lines(self, lines):
+        """
+        order lines of words by their x coordinate
+        """
+        for line in lines:
+            line.sort(key=lambda word: word.get_center()[0])
         return lines
     
     def print_lines(self, lines):

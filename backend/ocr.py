@@ -21,8 +21,9 @@ for points, text, conf in result:
     words_list.append(box)
 
 # create the text corpus
-text_corpus = TextCorpus(words_list)
+text_corpus = TextCorpus(words_list, y_delta=60)
 text_corpus.filter_by_confidence()
 lines = text_corpus.get_lines()
+lines = text_corpus.order_lines(lines)
 text_corpus.print_lines(lines)
 

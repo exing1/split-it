@@ -1,3 +1,21 @@
+def pretty_word(w):
+    """
+    capitablize first char and lowecase other chars
+    """
+    return w[0].upper() + w[1:].lower()
+
+
+def is_price(s):
+    """
+    check if a string is a price (aka a float)
+    """
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+
 class BoundingBox():
     """
     a bounding box object for a detected text
@@ -16,8 +34,13 @@ class BoundingBox():
         self.b = b
         self.c = c
         self.d = d
-        self.text = text
+        self.text = pretty_word(text)
         self.confidence = confidence
+        # price
+        self.numeric = is_price(text)
+        self.price = None
+        if self.numeric:
+            self.price = float(text)
         # calculate some stats
         self.width = self.b[0] - self.a[0]
         self.height = self.d[1] - self.a[1]
