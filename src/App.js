@@ -10,17 +10,17 @@ import Result from "./pages/Result";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Layout />}>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
           <Route index element={<Scan />} />
           <Route path="tip" element={<Tip />} />
           <Route path="select" element={<Select />} />
           <Route path="scan" element={<Scan />} />
           <Route path="result" element={<Result />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
