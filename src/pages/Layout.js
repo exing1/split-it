@@ -22,7 +22,6 @@ const Layout = () => {
           </li>
         </ul>
       </nav>
-
       <Outlet />
     </>
   )
