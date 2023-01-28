@@ -1,5 +1,6 @@
 import TopBar from "../components/TopBar";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const Scan = () => {
     const get_image = (img) => {
@@ -9,16 +10,14 @@ const Scan = () => {
         <>   
             <TopBar prev=""/>
             <div className="box">
-                <div className="upload">
-                    <form className="upload-form">
-                        <input type="file" id="file-upload"/>
-                        <Link to="/tip">
-                            <input type="submit"/>
-                        </Link>
-                    </form>
-                </div>
+                <Button variant="contained" component="label">
+                    Upload
+                    <input hidden accept="image/*" multiple type="file" />
+                </Button>
                 <div className="input">
-                    input manually
+                    <Link className="nav" to="/input">
+                        input manually
+                    </Link>
                 </div>
             </div>
         </>

@@ -7,9 +7,9 @@
   width: 96%;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
   margin: 8px;
-  height: 8vw;
+  height: clamp(48px, 8vw, 64px);
 }
 
 .nav {
@@ -18,7 +18,7 @@
 }
 
 .material-symbols-outlined {
-  font-size: 10vw;
+  font-size: clamp(48px, 8vw, 64px);
 }
 
 .box {
@@ -48,6 +48,20 @@
   justify-content: center;
 }
 
+.input-box {
+  padding: 4px;
+}
+
+.input-opt {
+  padding: 36px;
+}
+
+#text-inputs {
+  padding: 16px;
+  max-height: 60%;
+  overflow-y: auto;
+}
+
 #file-upload {
   width: 100%;
   text-align: center;
@@ -58,7 +72,8 @@
 }
 
 .name {
-  font-size: 8vw;
+  font-size: clamp(32px, 6vw, 48px);
+  height: clamp(48px, 8vw, 64px);
 }
 
 #hidden-next {

@@ -19,7 +19,7 @@ function TopBar(props) {
                     navigate_before
                 </div>
             </Link>
-            <div className="name">Split It</div>
+            <div className="name">split it</div>
             <div className="material-symbols-outlined" id="hidden-next">
                 navigate_next
             </div>
