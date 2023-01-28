@@ -16,9 +16,9 @@ def is_price(s):
         return False
 
 
-class BoundingBox():
+class Word():
     """
-    a bounding box object for a detected text
+    a word object for a detected text
     includes the position of the box, the text, and the recognition confidence
     """
     def __init__(self, a, b, c, d, text, confidence):

@@ -1,9 +1,32 @@
 class Line():
     """
     just a line of words
+    We process in into an item name and a price (if there is one)
     """
     def __init__(self, words):
         self.words = words
+        self.process()
+    
+    def process(self):
+        """
+        process the line into an item name and a price
+        NOTE: this method is HARDCODED, it assumes:
+            - the last word is the price
+            - the price only confuses . with ,
+        """
+        if len(self.words) <= 1:
+            self.price = None
+            self.item_name = " ".join([word.text for word in self.words])
+        else:
+            self.item_name = " ".join([word.text for word in self.words[:-1]])
+            # check if the last word is a price
+            if self.words[-1].numeric:
+                self.price = self.words[-1].price
+            else:
+                self.price = float(self.words[-1].text.replace(",", "."))
+    
+    def print_line(self):
+        print(self.item_name, self.price)
 
 
 class TextCorpus():
@@ -43,9 +66,23 @@ class TextCorpus():
             else:
                 # add to the last line
                 lines[-1].append(word)
+        # order lines
+        lines = self._order_lines(lines)
+        # create the Lines objects
+        lines = [Line(line) for line in lines]
         return lines
 
-    def order_lines(self, lines):
+    def get_info_dict(self, lines):
+        """
+        given a list of lines, return a dict that maps item name to price
+        """
+        info_dict = {}
+        for line in lines:
+            if line.price is not None:
+                info_dict[line.item_name] = line.price
+        return info_dict
+
+    def _order_lines(self, lines):
         """
         order lines of words by their x coordinate
         """
@@ -58,4 +95,4 @@ class TextCorpus():
         prints the lines
         """
         for line in lines:
-            print(" ".join([word.text for word in line]))
+            line.print_line()
