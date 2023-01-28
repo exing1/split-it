@@ -1,5 +1,10 @@
-const Select = () => {
-    return <h1>Select</h1>;
+const Select = (props) => {
+    console.log(props.data)
+    return (
+        <>
+        <h1>hi</h1>
+        </>
+   );
 };
   
 export default Select;
