@@ -2,6 +2,69 @@
   text-align: center;
 }
 
+.top-bar {
+  position: sticky;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 8px;
+  height: 8vw;
+}
+
+.nav {
+  text-decoration: none;
+  color: black;
+}
+
+.material-symbols-outlined {
+  font-size: 10vw;
+}
+
+.box {
+  position: absolute;
+  top: 12vw;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload {
+  width: 60%;
+  height: 40%;
+  background-color: lightgray;
+  border-radius: 8px;
+  box-shadow: 8px 8px 10px gray;
+}
+
+.upload-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#file-upload {
+  width: 100%;
+  text-align: center;
+}
+
+.input {
+  padding: 6vw
+}
+
+.name {
+  font-size: 8vw;
+}
+
+#hidden-next {
+  visibility: hidden;
+}
+
 @media only screen and (min-width: 768px) {
   .App {
     background-color: red;

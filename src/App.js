@@ -12,13 +12,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
           <Route index element={<Scan />} />
           <Route path="tip" element={<Tip />} />
           <Route path="select" element={<Select />} />
           <Route path="scan" element={<Scan />} />
           <Route path="result" element={<Result />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   );
