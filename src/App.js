@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Scan />} />
           <Route path="tip" element={<Tip />} />
           <Route path="select" element={<Select />} />
