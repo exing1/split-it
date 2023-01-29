@@ -3,23 +3,23 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Scan = () => {
 
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState("");
+
     const scanReceipt = () => {
+        setLoading("parsing image...");
         axios({
           method: "GET",
           url:"/scan-receipt",
         })
         .then((response) => {
           const res = response.data
-          console.log(res.items)
-          localStorage.setItem('receiptItems', JSON.stringify(res.items))
-        })
-        .then(() => {
-            navigate("/input");
+          navigate("/input", {state: res.items})
         }).catch((error) => {
           if (error.response) {
             console.log(error.response)
@@ -28,17 +28,30 @@ const Scan = () => {
             }
         })
     }
+
+    const checkFile = (e) => {
+        const path = e.target.value
+        if (path != "") {
+            const file = path.substring(path.lastIndexOf("\\") + 1);
+            console.log(file)
+            setLoading(file + " uploaded");
+        }
+    }
+
     return (
         <>   
             <TopBar prev=""/>
+            <div id="loading">
+                {loading}
+            </div>
             <div className="box">
-                <Button variant="contained" component="label" endIcon={<PhotoIcon />}>
+                <Button variant="outlined" component="label" endIcon={<PhotoIcon />} onChange={checkFile}>
                     Upload
                     <input hidden accept="image/*" multiple type="file" />
                 </Button>
                 <div className="input">
-                    <Button className="nav" onClick={scanReceipt}>
-                        input manually 
+                    <Button variant="contained" className="nav" onClick={scanReceipt}>
+                        Split 
                     </Button>
                 </div>
             </div>
