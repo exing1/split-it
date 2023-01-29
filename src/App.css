@@ -2,6 +2,101 @@
   text-align: center;
 }
 
+.top-bar {
+  position: sticky;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px;
+  height: clamp(48px, 8vw, 64px);
+}
+
+.nav {
+  text-decoration: none;
+  color: black;
+}
+
+.material-symbols-outlined {
+  font-size: clamp(48px, 8vw, 64px);
+}
+
+.box {
+  position: absolute;
+  top: 12vw;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.upload {
+  width: 60%;
+  height: 40%;
+  background-color: lightgray;
+  border-radius: 8px;
+  box-shadow: 8px 8px 10px gray;
+}
+
+.upload-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box {
+  padding: 4px;
+}
+
+.input-opt {
+  z-index: 1;
+  padding: 36px;
+}
+
+#input-tail {
+  height: 32px;
+  margin-bottom: 64px;
+}
+
+#text-inputs {
+  padding: 0 16px;
+  margin: 16px;
+  min-height: 60%;
+  max-height: 80%;
+  overflow-y: scroll;
+  mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+}
+
+#text-inputs.is-top-overflowing {
+  --top-mask-size: 48px;
+}
+
+#text-inputs.is-bottom-overflowing {
+  --bottom-mask-size: 48px;
+}
+
+#file-upload {
+  width: 100%;
+  text-align: center;
+}
+
+.input {
+  padding: 6vw
+}
+
+.name {
+  font-size: clamp(32px, 6vw, 48px);
+  height: clamp(48px, 8vw, 64px);
+}
+
+#hidden-next {
+  visibility: hidden;
+}
+
 @media only screen and (min-width: 768px) {
   .App {
     background-color: red;

@@ -1,5 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 const Select = () => {
-    return <h1>Select</h1>;
+    const location = useLocation();
+    const data = location.state
+    return (
+        <>
+        </>
+   );
 };
   
 export default Select;
