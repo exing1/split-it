@@ -9,7 +9,8 @@ def parse_receipt(text):
     post_question = "Please list all the food items along with their respective prices."
     post_question += " Tax and tip should also be their own items if listed on the receipt."
     post_question += " Answer in one line, with each item separated by a semicolon."
-    post_question += " The food and price should be separated by a colon"
+    post_question += " The food and price should be separated by a colon."
+    post_question += " Do not indent with whitespace."
     question = pre_question + ' ' + receipt_text + ' ' + post_question
     # ask gpt
     response_text = bot.ask(question)
@@ -20,12 +21,9 @@ def parse_receipt(text):
 
 
 def parse_gpt_response(response_text):
-    print(response_text)
     lines = response_text.split(';')
-    print(len(lines))
     info_dict = {}
     for line in lines:
-        print(line)  # TODO: debug
         res = line.split(':')
         item_name = res[0]
         price = res[1].replace(' ', '')
