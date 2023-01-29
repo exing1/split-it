@@ -74,13 +74,13 @@ class TextCorpus():
 
     def get_info_dict(self, lines):
         """
-        given a list of lines, return a dict that maps item name to price
+        given a list of lines, return a list of dict that maps item name to price
         """
-        info_dict = {}
+        info = []
         for line in lines:
             if line.price is not None:
-                info_dict[line.item_name] = line.price
-        return info_dict
+                info.append({"name": line.item_name, "price": line.price})
+        return info
 
     def _order_lines(self, lines):
         """
