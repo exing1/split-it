@@ -2,20 +2,39 @@ import TopBar from "../components/TopBar";
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom"
 
+const NameStorage = {}
+const PriceStorage = {}
 
 export default function Input() {
 
-    const [inputs, setInputs] = useState([<InputBox />, <InputBox />, <InputBox />])
+    const navigate = useNavigate()
 
-    const addBox = () => {
-        setInputs([...inputs, <InputBox />])
+    const init = []
+    for (let i = 0; i < 3; i++) {
+        init.push(<InputBox key={i} count={i} />)
     }
 
-    // const submit = () => {
-    //     inputs.map((input) => )
-    // }
+    const [inputs, setInputs] = useState(init);
+
+    const count = useRef(3);
+
+    const addBox = () => {
+        setInputs([...inputs, <InputBox key={count.current} count={count.current}/>]);
+        count.current++;
+    }
+
+    const submit = () => {
+        const results = {};
+        for (let i = 0; i < count.current; i++) {
+            if (NameStorage[i] && PriceStorage[i]);
+            results[NameStorage[i]] = PriceStorage[i];
+        }
+        console.log(results)
+        navigate("/select", {state: results});
+    }
 
     return (
         <>
@@ -28,7 +47,7 @@ export default function Input() {
                 <IconButton onClick={addBox}>
                     <AddIcon/>
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={submit} color="primary">
                     <ConfirmIcon/>
                 </IconButton>
             </Stack>
@@ -37,11 +56,18 @@ export default function Input() {
     )
 }
 
-function InputBox() {
+const store = (e, i, s) => {
+    if (e.target.value) {
+        s[i] = e.target.value;
+    }
+}
+
+function InputBox(props) {
+    const c = props.count
     return (
-        <div className="input-box">
-            <TextField label="item"/>
-            <TextField label="price" type="number" sx={{width: "10ch"}}/>
+        <div className="input-box" key={c}>
+            <TextField label="item" onChange={(e) => store(e, c, NameStorage)}/>
+            <TextField label="price" type="number" sx={{width: "10ch"}} onChange={(e) => store(e, c, PriceStorage)}/>
         </div>
     );
 }

@@ -10,7 +10,7 @@ const Scan = () => {
         <>   
             <TopBar prev=""/>
             <div className="box">
-                <Button variant="contained" component="label">
+                <Button variant="contained" component="label" endIcon={<PhotoIcon />}>
                     Upload
                     <input hidden accept="image/*" multiple type="file" />
                 </Button>
@@ -25,3 +25,11 @@ const Scan = () => {
 };
   
 export default Scan;
+
+const PhotoIcon = () => {
+    return (
+        <span className="material-symbols-outlined">
+            image
+        </span>
+    );
+}
