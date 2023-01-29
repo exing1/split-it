@@ -53,13 +53,30 @@
 }
 
 .input-opt {
+  z-index: 1;
   padding: 36px;
 }
 
+#input-tail {
+  height: 32px;
+  margin-bottom: 64px;
+}
+
 #text-inputs {
-  padding: 16px;
-  max-height: 60%;
-  overflow-y: auto;
+  padding: 0 16px;
+  margin: 16px;
+  min-height: 60%;
+  max-height: 80%;
+  overflow-y: scroll;
+  mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+}
+
+#text-inputs.is-top-overflowing {
+  --top-mask-size: 48px;
+}
+
+#text-inputs.is-bottom-overflowing {
+  --bottom-mask-size: 48px;
 }
 
 #file-upload {
