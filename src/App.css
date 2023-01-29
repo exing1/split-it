@@ -128,5 +128,9 @@
   text-align: center;
 }
 
+.userIcon:hover {
+  background-color: rgb(255, 135, 135);
+}
+
 @media only screen and (min-width: 768px) {
 }
