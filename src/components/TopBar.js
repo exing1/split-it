@@ -20,9 +20,12 @@ function TopBar(props) {
                 </div>
             </Link>
             <div className="name">split it</div>
-            <div className="material-symbols-outlined" id="hidden-next">
-                navigate_next
-            </div>
+            <Link className="nav" to={props.next ? props.next : ""} id={props.next ? "" : "hidden-next"}>
+                <div className="material-symbols-outlined">
+                    navigate_next
+                </div>
+            </Link>
+            
         </div>
     )
 }

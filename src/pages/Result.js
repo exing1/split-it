@@ -1,3 +1,5 @@
+import TopBar from "../components/TopBar";
+
 const Result = () => {
     // ids to names
     const people = {
@@ -21,7 +23,27 @@ const Result = () => {
 
 
     // for each food, see which people have it and assign prices
-    return <h1>Result</h1>;
+    return (
+        <>
+        <TopBar prev="/select"/>
+        <div className="box">
+            <div id="text-inputs">
+                <div className="receipt-line">
+                    <div>AG</div><div>$7.49</div>
+                </div>
+                <div className="receipt-line">
+                    <div>EX</div><div>$12.50</div>
+                </div>
+                <div className="receipt-line">
+                    <div>EZ</div><div>$1.99</div>
+                </div>
+                <div className="receipt-line">
+                    <div>PZ</div><div>$7.49</div>
+                </div>
+            </div>
+        </div>
+        </>
+    )
   };
   
   export default Result;

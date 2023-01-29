@@ -32,12 +32,11 @@
   flex-direction: column;
 }
 
-.upload {
-  width: 60%;
-  height: 40%;
-  background-color: lightgray;
-  border-radius: 8px;
-  box-shadow: 8px 8px 10px gray;
+#loading {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
 }
 
 .upload-form {
@@ -93,12 +92,45 @@
   height: clamp(48px, 8vw, 64px);
 }
 
+.receipt-line {
+  font-size: large;
+  padding: 4px;
+  margin: 12px;
+  border: 4px;
+  border-color: rgb(147, 197, 255);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  width: clamp(268px, 24vw, 800px);
+  display: flex;
+  justify-content: space-between;
+}
+
 #hidden-next {
   visibility: hidden;
 }
 
+.people {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+.userIcon {
+  width: 64px;
+  height: 64px;
+  color: white;
+  font-weight: bold;
+  line-height: 64px;
+  border-radius: 50%;
+  background-color: rgb(147, 197, 255);
+  text-align: center;
+}
+
+.userIcon:hover {
+  background-color: rgb(255, 135, 135);
+}
+
 @media only screen and (min-width: 768px) {
-  .App {
-    background-color: red;
-  }
 }
