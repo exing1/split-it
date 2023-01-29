@@ -11,15 +11,25 @@ const PriceStorage = {}
 export default function Input() {
 
     const navigate = useNavigate()
+    
+
+    const receiptItems = JSON.parse(localStorage.getItem("receiptItems"))
 
     const init = []
-    for (let i = 0; i < 3; i++) {
-        init.push(<InputBox key={i} count={i} />)
-    }
+    for (let i = 0; i < receiptItems.length; i++) {
+        const item = receiptItems[i]
+        init.push(<div key={i} className="input-box">
+            <TextField defaultValue={item.name} label="item" onChange={(e) => store(e, i, NameStorage)}/>
+            <TextField defaultValue={item.price} label="price" type="number" sx={{width: "10ch"}} onChange={(e) => store(e, i, PriceStorage)}/>
+        </div>)
+    } 
+        
+    const count = useRef(receiptItems.length);
+    
 
     const [inputs, setInputs] = useState(init);
 
-    const count = useRef(3);
+    
 
     const addBox = () => {
         setInputs([...inputs, <InputBox key={count.current} count={count.current}/>]);
