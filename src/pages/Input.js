@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 const NameStorage = {}
 const PriceStorage = {}
@@ -11,9 +11,9 @@ const PriceStorage = {}
 export default function Input() {
 
     const navigate = useNavigate()
-    
+    const location = useLocation()
 
-    const receiptItems = JSON.parse(localStorage.getItem("receiptItems"))
+    const receiptItems = location.state
 
     const init = []
     for (let i = 0; i < receiptItems.length; i++) {

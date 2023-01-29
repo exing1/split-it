@@ -32,6 +32,13 @@
   flex-direction: column;
 }
 
+#loading {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+}
+
 .upload {
   width: 60%;
   height: 40%;
