@@ -22,15 +22,18 @@ def parse_receipt(text):
 
 def parse_gpt_response(response_text):
     lines = response_text.split(';')
-    info_dict = {}
+    info = []
     for line in lines:
         res = line.split(':')
         item_name = res[0]
         price = res[1].replace(' ', '')
         if is_price(price.replace('$', '')):
             price = float(price.replace('$', ''))
-        info_dict[item_name] = price
-    return info_dict
+        info.append({
+            'name': item_name,
+            'price': price
+        })
+    return info
 
 
 def is_price(s):
