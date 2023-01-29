@@ -1,5 +1,5 @@
 const Select = (props) => {
-    console.log(props.data)
+    console.log(localStorage.getItem('tipAmount'))
     return (
         <>
         <h1>hi</h1>
