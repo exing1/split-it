@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const Scan = () => {
 
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState("");
+    const currentFile = useRef("");
 
     const scanReceipt = () => {
         setLoading("parsing image...");
         axios({
-          method: "GET",
+          method: "POST",
           url:"/scan-receipt",
+          image_path: currentFile.current,
+          data: {
+            image_path: currentFile.current
+          }
         })
         .then((response) => {
           const res = response.data
@@ -35,6 +40,7 @@ const Scan = () => {
             const file = path.substring(path.lastIndexOf("\\") + 1);
             console.log(file)
             setLoading(file + " uploaded");
+            currentFile.current = file;
         }
     }
 
