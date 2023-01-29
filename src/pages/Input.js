@@ -18,6 +18,9 @@ export default function Input() {
     const init = []
     for (let i = 0; i < receiptItems.length; i++) {
         const item = receiptItems[i]
+        NameStorage[i] = item.name
+        PriceStorage[i] = item.price
+
         init.push(<div key={i} className="input-box">
             <TextField defaultValue={item.name} label="item" onChange={(e) => store(e, i, NameStorage)}/>
             <TextField defaultValue={item.price} label="price" type="number" sx={{width: "10ch"}} onChange={(e) => store(e, i, PriceStorage)}/>
@@ -85,7 +88,7 @@ const setClasses = (el) => {
     const isScroledlToTop = el.scrollTop === 0;
     el.classList.toggle('is-bottom-overflowing', !isScrolledToBottom);
     el.classList.toggle('is-top-overflowing', !isScroledlToTop);
-  }
+}
 
 const store = (e, i, s) => {
     if (e.target.value) {

@@ -31,7 +31,7 @@ const Scan = () => {
 
     const checkFile = (e) => {
         const path = e.target.value
-        if (path != "") {
+        if (path !== "") {
             const file = path.substring(path.lastIndexOf("\\") + 1);
             console.log(file)
             setLoading(file + " uploaded");
