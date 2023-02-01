@@ -14,6 +14,7 @@ def scan_receipt():
         request_data = request.data.decode('utf-8')
         # convert string to dict
         data = json.loads(request_data)
+        data['image_path'] = data['image_path'].replace('.heic', '')
         img_path = '../assets/' + data['image_path']
     
     else:
