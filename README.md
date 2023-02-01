@@ -6,11 +6,9 @@ This is a beautiful React app supported by a Python backend, where we used Optic
 ## Demo
 [**Demo Video**](https://drive.google.com/file/d/10i-0ATFyxK-_-pMLDm0Q6r14uR6BzkL1/view?usp=sharing)
 
-![receipt](assets/receipt.jpg|width=200px)
-
-![paserd_result](assets/parsed_result.png|width=200px)
-
-![landing_page](assets/landing_page.png|width=200px)
+<img src="assets/receipt.jpg" width="300">
+<img src="assets/parsed_result.png" width="300">
+<img src="assets/landing_page.png" width="300">
 
 
 ## setting up
