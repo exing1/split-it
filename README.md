@@ -17,8 +17,10 @@ This is a beautiful React app supported by a Python backend, where we used Optic
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
+
 # install the npm packages
 npm install
+
 # set up chatgpt
 1. create an account on OpenAI and make sure you can access ChatGPT in the browser
 2. following instructions on this repo to inteface with ChatGPT in Python:
@@ -29,8 +31,10 @@ https://github.com/mmabrouk/chatgpt-wrapper
 ## running
 ```bash
 cd backend/
+
 # run the flask server
 flask --app base run
+
 # run the react app
 npm start
 ```
