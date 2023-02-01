@@ -28,6 +28,7 @@ https://github.com/mmabrouk/chatgpt-wrapper
 
 ## running
 ```bash
+cd backend/
 # run the flask server
 flask --app base run
 # run the react app
