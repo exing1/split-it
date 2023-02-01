@@ -4,7 +4,7 @@
 
 .top-bar {
   position: sticky;
-  width: 96%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,6 +68,7 @@
   max-height: 80%;
   overflow-y: scroll;
   mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black var(--top-mask-size, 0), black calc(100% - var(--bottom-mask-size, 0)), transparent 100%);
 }
 
 #text-inputs.is-top-overflowing {
@@ -104,6 +105,10 @@
   width: clamp(268px, 24vw, 800px);
   display: flex;
   justify-content: space-between;
+}
+
+.receipt-line:hover {
+  border-color: rgb(255, 135, 135);
 }
 
 #hidden-next {

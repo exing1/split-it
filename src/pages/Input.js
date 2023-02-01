@@ -45,8 +45,9 @@ export default function Input() {
     const submit = () => {
         const results = {};
         for (let i = 0; i < count.current; i++) {
-            if (NameStorage[i] && PriceStorage[i]);
-            results[NameStorage[i]] = PriceStorage[i];
+            if (NameStorage[i] && PriceStorage[i]) {
+                results[NameStorage[i]] = PriceStorage[i];
+            }
         }
         console.log(results)
         navigate("/select", {state: results});
