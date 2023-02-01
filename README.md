@@ -6,9 +6,9 @@ This is a beautiful React app supported by a Python backend, where we used Optic
 ## Demo
 [**Demo Video**](https://drive.google.com/file/d/10i-0ATFyxK-_-pMLDm0Q6r14uR6BzkL1/view?usp=sharing)
 
-![receipt](assets/receipt.jpg){:style="width: 200px;"}
-![paserd_result](assets/parsed_result.png){:style="width: 200px;"}
-![landing_page](assets/landing_page.png){:style="width: 200px;"}
+| Receipt Example | Parsed Result | Landing Page |
+| :---: | :---: | :---: |
+| ![receipt](assets/receipt.jpg) | ![paserd_result](assets/parsed_result.png) | ![landing_page](assets/landing_page.png) |
 
 
 ## setting up
@@ -28,6 +28,7 @@ https://github.com/mmabrouk/chatgpt-wrapper
 
 ## running
 ```bash
+cd backend/
 # run the flask server
 flask --app base run
 # run the react app
